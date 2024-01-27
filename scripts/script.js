@@ -19,10 +19,18 @@ const camera = new THREE.PerspectiveCamera(75, canvas.width / canvas.height, 0.1
 camera.position.z = 5;//INITIAL CAMERA SETUP.
 //RENDERER
 const renderer = new THREE.WebGLRenderer({ canvas });
+renderer.antialias = true;
 
 //LIGHT SETUP
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); 
 scene.add(ambientLight);
+
+const spotLight = new THREE.SpotLight(0xffffff);
+spotLight.position.set(0,0,5);
+scene.add(spotLight);
+//LIGHT HELPER (Helpers zijn enkel bedoeld voor ontwikkeling (visualisatie van onzichtbare objecten bv. lampen.)) 
+const spotLightHelper = new THREE.SpotLightHelper(spotLight);
+//scene.add(spotLightHelper);
 
 //THREE.JS ELEMENTS
 const geometry = new THREE.BoxGeometry();
@@ -37,10 +45,11 @@ dracoLoader.setDecoderPath('https://unpkg.com/three@latest/examples/jsm/libs/dra
 loader.setDRACOLoader(dracoLoader);
 
 loader.load(
-    '../assets/3D/comp_sphere.glb',
+    '../assets/3D/Monkey_Comp.glb',
     (gltf) => {
         const model = gltf.scene;
-        model.position.set(0,2,0);
+        model.position.set(0,0,0);
+        console.log(model);
         scene.add(model);
     },
     (xhr) => {

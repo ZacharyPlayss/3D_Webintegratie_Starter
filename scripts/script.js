@@ -1,7 +1,7 @@
-import * as THREE from 'https://unpkg.com/three@latest/build/three.module.js';
-import { GLTFLoader }from 'https://unpkg.com/three@latest/examples/jsm/loaders/GLTFLoader.js'
-import { DRACOLoader } from 'https://unpkg.com/three@latest/examples/jsm/loaders/DRACOLoader.js';
-import { OrbitControls } from 'https://unpkg.com/three@latest/examples/jsm/controls/OrbitControls.js';
+import * as THREE from 'https://unpkg.com/three@0.161.0/build/three.module.js';
+import { GLTFLoader }from 'https://unpkg.com/three@0.161.0/examples/jsm/loaders/GLTFLoader.js'
+import { DRACOLoader } from 'https://unpkg.com/three@0.161.0/examples/jsm/loaders/DRACOLoader.js';
+import { OrbitControls } from 'https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js';
 
 //FUNCTIONS
 function onWindowResize() {
@@ -41,7 +41,7 @@ scene.add(cube);
 //CUSTOM MODEL LOADING
 const loader = new GLTFLoader();
 const dracoLoader = new DRACOLoader();
-dracoLoader.setDecoderPath('https://unpkg.com/three@latest/examples/jsm/libs/draco/');
+dracoLoader.setDecoderPath('https://unpkg.com/three@0.161.0/examples/jsm/libs/draco/');
 loader.setDRACOLoader(dracoLoader);
 
 loader.load(
